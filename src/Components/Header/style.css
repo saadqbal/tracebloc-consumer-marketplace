@@ -1,0 +1,18 @@
+
+.navbar-toggle.pull-left {
+    margin-left: 15px;
+  }
+
+  .navbar-expand-lg .navbar-toggler {
+    /* display: inline; */
+    border: none;
+  }
+  @media (min-width: 768px) {
+    .pull-sm-left {
+      float: left !important;
+    }
+  }
+
+  .bg-color {
+    background-color: #fafafa;
+  }

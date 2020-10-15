@@ -1,0 +1,49 @@
+main {
+	flex: 1 0 auto;
+    display: flex;
+    height: 100vh;
+    background-color: #eef0f1;
+}
+
+aside {
+	flex: 0 0 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+	background-color: #fefefe;
+}
+
+aside i.fa {
+    font-size: 20px;
+    color: #666;
+    flex-direction: column;
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+}
+
+aside i.fa > span {
+    font-size: 12px;
+    color: #666;
+}
+
+section.loading {
+	flex: 1;
+	display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+section.loading > div {
+    
+    margin: auto;
+}
+
+section.content {
+	flex: 1 0 auto;
+	display: flex;
+    flex-direction: row;
+}

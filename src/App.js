@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Header';
+import Main from './Components/Main';
+import { ConsumerProvider } from './context/CunsumerContext';
+import Web3Connect from './Components/Web3Connect';
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ConsumerProvider>
+          <Web3Connect />
+          <Header />
+          <Main />
+          {
+            // <footer>
+            //   <nav class="navbar fixed-bottom navbar-light bg-light">
+            //     <a class="navbar-brand" href="#">Tracebloc</a>
+            //   </nav>
+            // </footer>
+          }
+      </ConsumerProvider>
     </div>
   );
 }
+
+
 
 export default App;
