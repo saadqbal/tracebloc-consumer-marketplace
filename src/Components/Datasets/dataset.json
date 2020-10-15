@@ -1,0 +1,217 @@
+{
+    "@context": "https://w3id.org/did/v1",
+    "id": "did:op:038ce6758d194e54961630d0c44ff0b617d117361436448f9cd4f4c0845f887d",
+    "created": "2019-06-28T10:34:19",
+    "publicKey": [{
+        "id": "did:op:038ce6758d194e54961630d0c44ff0b617d117361436448f9cd4f4c0845f887d",
+        "type": "EthereumECDSAKey",
+        "owner": "0xd5ecdfd712609163193906A33e10B657Cf0a2417"
+    }],
+    "authentication": [{
+        "type": "RsaSignatureAuthentication2018",
+        "publicKey": "did:op:038ce6758d194e54961630d0c44ff0b617d117361436448f9cd4f4c0845f887d"
+    }],
+    "service": [{
+        "type": "metadata",
+        "serviceEndpoint": "https://aquarius.pacific.dev-ocean.com/api/v1/aquarius/assets/ddo/did:op:038ce6758d194e54961630d0c44ff0b617d117361436448f9cd4f4c0845f887d",
+        "attributes": {
+            "main": {
+                "type": "dataset",
+                "name": "10 Monkey Species Small",
+                "dateCreated": "2012-02-01T10:55:11",
+                "datePublished": "2019-12-11T04:55:21",
+                "author": "Mario",
+                "license": "CC0: Public Domain",
+                "price": "0",
+                "files": [{
+                    "index": 0,
+                    "contentLength": "12057507",
+                    "checksumType": "MD5",
+                    "checksum": "2bf9d229d110d1976cdf85e9f3256c7f",
+                    "contentType": ""
+                }, {
+                    "index": 1,
+                    "contentLength": "928",
+                    "checksumType": "MD5",
+                    "checksum": "354d19c0733c47ef3a6cce5b633116b0",
+                    "contentType": ""
+                }, {
+                    "index": 2,
+                    "contentType": ""
+                }]
+            },
+            "curation": {
+                "rating": 0.0,
+                "numVotes": 0,
+                "isListed": true
+            },
+            "additionalInformation": {
+                "tags": ["image data", "classification", "animals"],
+                "links": [{
+                    "url": "https://drive.google.com/open?id=1uuz50RGiAW8YxRcWeQVgQglZpyAebgSM",
+                    "name": "example model"
+                }, {
+                    "url": "https://github.com/slothkong/CNN_classification_10_monkey_species",
+                    "type": "example code",
+                    "name": "example code"
+                }, {
+                    "url": "https://s3.amazonaws.com/datacommons-seeding-us-east/10_Monkey_Species_Small/links/discovery/n5151.jpg",
+                    "type": "discovery",
+                    "name": "n5151.jpg"
+                }, {
+                    "url": "https://s3.amazonaws.com/datacommons-seeding-us-east/10_Monkey_Species_Small/links/sample/sample.zip",
+                    "type": "sample",
+                    "name": "sample.zip"
+                }],
+                "inLanguage": "en",
+                "workExample": "image path, id, label",
+                "checksum": "0xe243423d6140e686112518167bc025fefaf9a0789c142d1dcd866d80453cdb84",
+                "copyrightHolder": "Unknown",
+                "categories": ["image"],
+                "description": "EXAMPLE ONLY "
+            },
+            "encryptedFiles": "0x5fed7d9958531363ca1cf8faaae9508428400976a6898c985d00bcd148b751d31760b7973a6741343a978bd86e09012fe6e98d4294dc74cc463d02d0543279ebafb4450239864c275acfe55a2428e5a8f3eacbb1b92ed57a1b0e10f58abf7e1f28e6ad9456200d4a886b241282f6bf89b50afb2b348cfc5c3f59edd5d3582cf3d20598d5e55ffcc4ed3d7ba8fdc3e20d792820039b654ab264bdf4a09e3047df80a6f7810758a02df7d39e76388f795e9c0b00d3b0b0882fbd33ae7670172c4022e46da01394d4d2b1cb4ebdd9d372f33a5492761df4972f3bff1f887a9df242e246099c8be755d56a8ed9b9a115e35727081653c980f3b5be9fe99c3ddec32108619a5380835c8871eae2805b4f7338e3f99bfbd0077a2907fee8bf4fa647882d5345626fe5ca09247b5d4f1765eba2db2df84bf24365effd634466e436e5269b05fa4e753687310999ce1cf222fb81908b87e653ef93ff94e3468fc8c2094a72322e862251bfc1a04cd7daad3ebacbee7047ec2472b0563e2160b17efbf408460b8bca7d80f0155143ee27391f6dbb40cec51f9dc435a8a52b32a0ba76542d8a62a4c3b5b362c86cf8d69b21709eedd29b448015cb11fcb8d6af8834e46ad8f565ea86a114ef785a387958120fef1d9b4e29aef3e6fd02260ccf5981068fa828196da05fe6f1b7cb63a7e758c5b7b3f96ea7472667913c3483f8a0e1b90dda4af13897e117705f83aa97d6360fdc8746651b684339b767a5670eb1e1deabc7831a46fca8f326b74538"
+        },
+        "index": 0
+    }, {
+        "type": "authorization",
+        "serviceEndpoint": "https://secret-store.pacific.oceanprotocol.com",
+        "attributes": {},
+        "index": 2,
+        "service": "SecretStore"
+    }, {
+        "type": "access",
+        "serviceEndpoint": "https://brizo.pacific.dev-ocean.com/api/v1/brizo/services/consume",
+        "attributes": {
+            "serviceAgreementTemplate": {
+                "contractName": "EscrowAccessSecretStoreTemplate",
+                "events": [{
+                    "name": "AgreementCreated",
+                    "actorType": "consumer",
+                    "handler": {
+                        "moduleName": "escrowAccessSecretStoreTemplate",
+                        "functionName": "fulfillLockRewardCondition",
+                        "version": "0.1"
+                    }
+                }],
+                "fulfillmentOrder": ["lockReward.fulfill", "accessSecretStore.fulfill", "escrowReward.fulfill"],
+                "conditionDependency": {
+                    "lockReward": [],
+                    "accessSecretStore": [],
+                    "escrowReward": ["lockReward", "accessSecretStore"]
+                },
+                "conditions": [{
+                    "name": "lockReward",
+                    "timelock": 0,
+                    "timeout": 0,
+                    "contractName": "LockRewardCondition",
+                    "functionName": "fulfill",
+                    "parameters": [{
+                        "name": "_rewardAddress",
+                        "type": "address",
+                        "value": "0xd5ecdfd712609163193906A33e10B657Cf0a2417"
+                    }, {
+                        "name": "_amount",
+                        "type": "uint256",
+                        "value": "0"
+                    }],
+                    "events": [{
+                        "name": "Fulfilled",
+                        "actorType": "publisher",
+                        "handler": {
+                            "moduleName": "lockRewardCondition",
+                            "functionName": "fulfillAccessSecretStoreCondition",
+                            "version": "0.1"
+                        }
+                    }]
+                }, {
+                    "name": "accessSecretStore",
+                    "timelock": 0,
+                    "timeout": 0,
+                    "contractName": "AccessSecretStoreCondition",
+                    "functionName": "fulfill",
+                    "parameters": [{
+                        "name": "_documentId",
+                        "type": "bytes32",
+                        "value": "038ce6758d194e54961630d0c44ff0b617d117361436448f9cd4f4c0845f887d"
+                    }, {
+                        "name": "_grantee",
+                        "type": "address",
+                        "value": ""
+                    }],
+                    "events": [{
+                        "name": "Fulfilled",
+                        "actorType": "publisher",
+                        "handler": {
+                            "moduleName": "accessSecretStore",
+                            "functionName": "fulfillEscrowRewardCondition",
+                            "version": "0.1"
+                        }
+                    }, {
+                        "name": "TimedOut",
+                        "actorType": "consumer",
+                        "handler": {
+                            "moduleName": "accessSecretStore",
+                            "functionName": "fulfillEscrowRewardCondition",
+                            "version": "0.1"
+                        }
+                    }]
+                }, {
+                    "name": "escrowReward",
+                    "timelock": 0,
+                    "timeout": 0,
+                    "contractName": "EscrowReward",
+                    "functionName": "fulfill",
+                    "parameters": [{
+                        "name": "_amount",
+                        "type": "uint256",
+                        "value": "0"
+                    }, {
+                        "name": "_receiver",
+                        "type": "address",
+                        "value": ""
+                    }, {
+                        "name": "_sender",
+                        "type": "address",
+                        "value": ""
+                    }, {
+                        "name": "_lockCondition",
+                        "type": "bytes32",
+                        "value": ""
+                    }, {
+                        "name": "_releaseCondition",
+                        "type": "bytes32",
+                        "value": ""
+                    }],
+                    "events": [{
+                        "name": "Fulfilled",
+                        "actorType": "publisher",
+                        "handler": {
+                            "moduleName": "escrowRewardCondition",
+                            "functionName": "verifyRewardTokens",
+                            "version": "0.1"
+                        }
+                    }]
+                }]
+            },
+            "additionalInformation": {
+                "description": ""
+            },
+            "main": {
+                "name": "dataAssetAccessServiceAgreement",
+                "creator": "",
+                "datePublished": "2019-12-11T04:55:21Z",
+                "price": "",
+                "timeout": 36000
+            }
+        },
+        "index": 3,
+        "templateId": "0x9BF43606d833489fbD568ace13f535fC41130c28"
+    }],
+    "proof": {
+        "created": "2019-06-28T10:34:19Z",
+        "creator": "0xd5ecdfd712609163193906A33e10B657Cf0a2417",
+        "type": "DDOIntegritySignature",
+        "signatureValue": "0xd44efbf071e5b80550767def640f5d98862b1337026229ab11ab88c5d31b7c252769c562bde3f57f7784edce4ab118e060b9b2fc589cbf67c7eac19f06fea47900"
+    }
+}

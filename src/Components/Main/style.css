@@ -43,7 +43,7 @@ section.loading > div {
 }
 
 section.content {
-	flex: 1 0 auto;
+	flex: auto;
 	display: flex;
     flex-direction: row;
 }

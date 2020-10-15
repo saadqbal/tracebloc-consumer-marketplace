@@ -1,0 +1,861 @@
+{
+    "results": [{
+        "@context": "https://w3id.org/did/v1",
+        "id": "did:op:f4f88f28174c45c19f672c894f96a37737e1181b3ddd4a48846408bfd9cd254f",
+        "created": "2019-07-02T10:00:48",
+        "publicKey": [{
+            "id": "did:op:f4f88f28174c45c19f672c894f96a37737e1181b3ddd4a48846408bfd9cd254f",
+            "type": "EthereumECDSAKey",
+            "owner": "0x40967104aA72835637AFbA5318a4517A0ED5C883"
+        }],
+        "authentication": [{
+            "type": "RsaSignatureAuthentication2018",
+            "publicKey": "did:op:f4f88f28174c45c19f672c894f96a37737e1181b3ddd4a48846408bfd9cd254f"
+        }],
+        "service": [{
+            "type": "metadata",
+            "serviceEndpoint": "https://aquarius.commons.oceanprotocol.com/api/v1/aquarius/assets/ddo/did:op:f4f88f28174c45c19f672c894f96a37737e1181b3ddd4a48846408bfd9cd254f",
+            "attributes": {
+                "main": {
+                    "type": "dataset",
+                    "name": "SG CarMart Know your Vehicle: SJR8961K",
+                    "dateCreated": "2012-10-10T09:00:00",
+                    "datePublished": "2019-12-11T05:20:52",
+                    "author": "SG CarMart ",
+                    "license": "SG CarMart KYV License",
+                    "price": "15",
+                    "files": [{
+                        "checksum": "efb2c764274b745f5fc37f97c6b0e761",
+                        "compression": "zip",
+                        "contentLength": "4535",
+                        "contentType": "text/json",
+                        "encoding": "UTF-8",
+                        "index": 0
+                    }]
+                },
+                "curation": {
+                    "rating": 0.0,
+                    "numVotes": 0,
+                    "isListed": true
+                },
+                "additionalInformation": {
+                    "carplate": "SJR8961K",
+                    "vin": "WBAWB320X0PV53794",
+                    "manufacturer": "BMW",
+                    "model": "BMW 325I Coupe XL",
+                    "year": "2009",
+                    "colour": "blue",
+                    "type": "Sports Car",
+                    "transmission": "Auto",
+                    "engine_capacity": 2497,
+                    "fuel_type": "Petrol",
+                    "registration_date": "2009-07-17",
+                    "coe_date": "2019-07-16",
+                    "coe": 16801,
+                    "omv": 50880,
+                    "max_power_output": 214,
+                    "price_sgd": 15,
+                    "images": [{
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_1b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_2b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_3b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_4b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_5b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_6b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_7b.jpg"
+                    }],
+                    "checksum": "0x823ef8fe54e86f40ec3adcf8606d24f3265d8e6f2b78d75392436ef3680da531",
+                    "copyrightHolder": "SG CarMart ",
+                    "description": "This is a KYV dataset from SG CarMart for the vehicle no. SJR8961K .The vehicle is a 10 year old BMW 325I Coupe XL in excellent condition.",
+                    "inLanguage": "en"
+                },
+                "encryptedFiles": "[{\"checksum\":\"efb2c764274b745f5fc37f97c6b0e761\",\"compression\":\"zip\",\"contentLength\":4535,\"contentType\":\"text/json\",\"encoding\":\"UTF-8\",\"index\":0,\"url\":\"https://i.i-sgcm.com/quotz/cars/201712/20328_1b.jpg\"}]"
+            },
+            "index": 0
+        }, {
+            "type": "authorization",
+            "serviceEndpoint": "https://secret-store.dev-ocean.com",
+            "attributes": {},
+            "index": 2,
+            "service": "SecretStore"
+        }, {
+            "type": "access",
+            "serviceEndpoint": "https://nginx-brizo.dev-ocean.com/api/v1/brizo/services/consume",
+            "attributes": {
+                "serviceAgreementTemplate": {
+                    "conditionDependency": {
+                        "accessSecretStore": [],
+                        "escrowReward": ["lockReward", "accessSecretStore"],
+                        "lockReward": []
+                    },
+                    "conditions": [{
+                        "contractName": "LockRewardCondition",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "fulfillAccessSecretStoreCondition",
+                                "moduleName": "lockRewardCondition",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "lockReward",
+                        "parameters": [{
+                            "name": "_rewardAddress",
+                            "type": "address",
+                            "value": "0xeD4Ef53376C6f103d2d7029D7E702e082767C6ff"
+                        }, {
+                            "name": "_amount",
+                            "type": "uint256",
+                            "value": "15"
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }, {
+                        "contractName": "AccessSecretStoreCondition",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "fulfillEscrowRewardCondition",
+                                "moduleName": "accessSecretStore",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }, {
+                            "actorType": "consumer",
+                            "handler": {
+                                "functionName": "fulfillEscrowRewardCondition",
+                                "moduleName": "accessSecretStore",
+                                "version": "0.1"
+                            },
+                            "name": "TimedOut"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "accessSecretStore",
+                        "parameters": [{
+                            "name": "_documentId",
+                            "type": "bytes32",
+                            "value": "f4f88f28174c45c19f672c894f96a37737e1181b3ddd4a48846408bfd9cd254f"
+                        }, {
+                            "name": "_grantee",
+                            "type": "address",
+                            "value": ""
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }, {
+                        "contractName": "EscrowReward",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "verifyRewardTokens",
+                                "moduleName": "escrowRewardCondition",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "escrowReward",
+                        "parameters": [{
+                            "name": "_amount",
+                            "type": "uint256",
+                            "value": "15"
+                        }, {
+                            "name": "_receiver",
+                            "type": "address",
+                            "value": ""
+                        }, {
+                            "name": "_sender",
+                            "type": "address",
+                            "value": ""
+                        }, {
+                            "name": "_lockCondition",
+                            "type": "bytes32",
+                            "value": "0xE30FC30c678437e0e8F78C52dE9db8E2752781a0"
+                        }, {
+                            "name": "_releaseCondition",
+                            "type": "bytes32",
+                            "value": "0x45DE141F8Efc355F1451a102FB6225F1EDd2921d"
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }],
+                    "contractName": "EscrowAccessSecretStoreTemplate",
+                    "events": [{
+                        "actorType": "consumer",
+                        "handler": {
+                            "functionName": "fulfillLockRewardCondition",
+                            "moduleName": "escrowAccessSecretStoreTemplate",
+                            "version": "0.1"
+                        },
+                        "name": "AgreementCreated"
+                    }],
+                    "fulfillmentOrder": ["lockReward.fulfill", "accessSecretStore.fulfill", "escrowReward.fulfill"]
+                },
+                "additionalInformation": {
+                    "description": ""
+                },
+                "main": {
+                    "name": "dataAssetAccessServiceAgreement",
+                    "creator": "",
+                    "datePublished": "2019-12-11T05:20:52Z",
+                    "price": "",
+                    "timeout": 36000
+                }
+            },
+            "index": 3,
+            "templateId": "0xfA16d26e9F4fffC6e40963B281a0bB08C31ed40C"
+        }],
+        "proof": {
+            "created": "2019-07-02T10:00:48Z",
+            "creator": "0x40967104aA72835637AFbA5318a4517A0ED5C883",
+            "signatureValue": "0xff2939779d4171ecd17741933f5800b98a2632ec66d475e9ee18bdcb530e285e0x70bcdfca8c6c83d34bcae7eece59dc249ccb01ea2bd8ded565f04ffcc4dac6371c",
+            "type": "DDOIntegritySignature"
+        }
+    }, {
+        "@context": "https://w3id.org/did/v1",
+        "id": "did:op:e47003e769b6438397bec244a2b3b177f14af755f23f45e7843869791db822d7",
+        "created": "2019-07-02T09:56:10",
+        "publicKey": [{
+            "id": "did:op:e47003e769b6438397bec244a2b3b177f14af755f23f45e7843869791db822d7",
+            "type": "EthereumECDSAKey",
+            "owner": "0x40967104aA72835637AFbA5318a4517A0ED5C883"
+        }],
+        "authentication": [{
+            "type": "RsaSignatureAuthentication2018",
+            "publicKey": "did:op:e47003e769b6438397bec244a2b3b177f14af755f23f45e7843869791db822d7"
+        }],
+        "service": [{
+            "type": "metadata",
+            "serviceEndpoint": "https://aquarius.commons.oceanprotocol.com/api/v1/aquarius/assets/ddo/did:op:e47003e769b6438397bec244a2b3b177f14af755f23f45e7843869791db822d7",
+            "attributes": {
+                "main": {
+                    "type": "dataset",
+                    "name": "Know your Vehicle: (SJR8961K)",
+                    "dateCreated": "2012-10-10T09:00:00",
+                    "datePublished": "2019-12-11T05:19:25",
+                    "author": "SG CarMart ",
+                    "license": "SG CarMart  KYV  License ",
+                    "price": "15",
+                    "files": [{
+                        "checksum": "efb2c764274b745f5fc37f97c6b0e761",
+                        "compression": "zip",
+                        "contentLength": "4535431",
+                        "contentType": "text/json",
+                        "encoding": "UTF-8",
+                        "index": 0
+                    }]
+                },
+                "curation": {
+                    "rating": 0.0,
+                    "numVotes": 0,
+                    "isListed": true
+                },
+                "additionalInformation": {
+                    "carplate": "SJR8961K",
+                    "vin": "WBAWB320X0PV53794",
+                    "manufacturer": "BMW",
+                    "model": "BMW 325I Coupe XL",
+                    "year": "2009",
+                    "colour": "blue",
+                    "type": "Sports Car",
+                    "transmission": "Auto",
+                    "engine_capacity": 2497,
+                    "fuel_type": "Petrol",
+                    "registration_date": "2009-07-17",
+                    "coe_date": "2019-07-16",
+                    "coe": 16801,
+                    "omv": 50880,
+                    "max_power_output": 214,
+                    "price_sgd": 15,
+                    "images": [{
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_1b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_2b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_3b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_4b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_5b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_6b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_7b.jpg"
+                    }],
+                    "checksum": "0xc0f0563dc261f98e55a44b3d6bb3d1d30d4612368b4b94105a177a0add3d3a06",
+                    "copyrightHolder": "SG CarMart ",
+                    "description": "This is a KYV dataset from SG Car mart for the vehicle (SJR8961K).It is 10 year old BMW 325I Coupe XL in excellent condition.",
+                    "inLanguage": "en"
+                },
+                "encryptedFiles": "[{\"checksum\":\"efb2c764274b745f5fc37f97c6b0e761\",\"compression\":\"zip\",\"contentLength\":4535431,\"contentType\":\"text/json\",\"encoding\":\"UTF-8\",\"index\":0,\"url\":\"https://i.i-sgcm.com/quotz/cars/201712/20328_1b.jpg\"}]"
+            },
+            "index": 0
+        }, {
+            "type": "authorization",
+            "serviceEndpoint": "https://secret-store.dev-ocean.com",
+            "attributes": {},
+            "index": 2,
+            "service": "SecretStore"
+        }, {
+            "type": "access",
+            "serviceEndpoint": "https://nginx-brizo.dev-ocean.com/api/v1/brizo/services/consume",
+            "attributes": {
+                "serviceAgreementTemplate": {
+                    "conditionDependency": {
+                        "accessSecretStore": [],
+                        "escrowReward": ["lockReward", "accessSecretStore"],
+                        "lockReward": []
+                    },
+                    "conditions": [{
+                        "contractName": "LockRewardCondition",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "fulfillAccessSecretStoreCondition",
+                                "moduleName": "lockRewardCondition",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "lockReward",
+                        "parameters": [{
+                            "name": "_rewardAddress",
+                            "type": "address",
+                            "value": "0xeD4Ef53376C6f103d2d7029D7E702e082767C6ff"
+                        }, {
+                            "name": "_amount",
+                            "type": "uint256",
+                            "value": "15"
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }, {
+                        "contractName": "AccessSecretStoreCondition",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "fulfillEscrowRewardCondition",
+                                "moduleName": "accessSecretStore",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }, {
+                            "actorType": "consumer",
+                            "handler": {
+                                "functionName": "fulfillEscrowRewardCondition",
+                                "moduleName": "accessSecretStore",
+                                "version": "0.1"
+                            },
+                            "name": "TimedOut"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "accessSecretStore",
+                        "parameters": [{
+                            "name": "_documentId",
+                            "type": "bytes32",
+                            "value": "e47003e769b6438397bec244a2b3b177f14af755f23f45e7843869791db822d7"
+                        }, {
+                            "name": "_grantee",
+                            "type": "address",
+                            "value": ""
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }, {
+                        "contractName": "EscrowReward",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "verifyRewardTokens",
+                                "moduleName": "escrowRewardCondition",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "escrowReward",
+                        "parameters": [{
+                            "name": "_amount",
+                            "type": "uint256",
+                            "value": "15"
+                        }, {
+                            "name": "_receiver",
+                            "type": "address",
+                            "value": ""
+                        }, {
+                            "name": "_sender",
+                            "type": "address",
+                            "value": ""
+                        }, {
+                            "name": "_lockCondition",
+                            "type": "bytes32",
+                            "value": "0xE30FC30c678437e0e8F78C52dE9db8E2752781a0"
+                        }, {
+                            "name": "_releaseCondition",
+                            "type": "bytes32",
+                            "value": "0x45DE141F8Efc355F1451a102FB6225F1EDd2921d"
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }],
+                    "contractName": "EscrowAccessSecretStoreTemplate",
+                    "events": [{
+                        "actorType": "consumer",
+                        "handler": {
+                            "functionName": "fulfillLockRewardCondition",
+                            "moduleName": "escrowAccessSecretStoreTemplate",
+                            "version": "0.1"
+                        },
+                        "name": "AgreementCreated"
+                    }],
+                    "fulfillmentOrder": ["lockReward.fulfill", "accessSecretStore.fulfill", "escrowReward.fulfill"]
+                },
+                "additionalInformation": {
+                    "description": ""
+                },
+                "main": {
+                    "name": "dataAssetAccessServiceAgreement",
+                    "creator": "",
+                    "datePublished": "2019-12-11T05:19:25Z",
+                    "price": "",
+                    "timeout": 36000
+                }
+            },
+            "index": 3,
+            "templateId": "0xfA16d26e9F4fffC6e40963B281a0bB08C31ed40C"
+        }],
+        "proof": {
+            "created": "2019-07-02T09:56:10Z",
+            "creator": "0x40967104aA72835637AFbA5318a4517A0ED5C883",
+            "signatureValue": "0x7f44aa81c5df9daf6b9389443b90b1c532deca099d1b38e4d7f5a7227c21f9c70x495cb27ad1718c0fecee02cf3f707b5a21bd914c03cbe75087ab305ab1e37f141b",
+            "type": "DDOIntegritySignature"
+        }
+    }, {
+        "@context": "https://w3id.org/did/v1",
+        "id": "did:op:a8eaa75b5fa54344b9c1061c8f938a8bdc9ea78b011f456490d1bdf116a867cc",
+        "created": "2019-07-02T07:09:08",
+        "publicKey": [{
+            "id": "did:op:a8eaa75b5fa54344b9c1061c8f938a8bdc9ea78b011f456490d1bdf116a867cc",
+            "type": "EthereumECDSAKey",
+            "owner": "0x40967104aA72835637AFbA5318a4517A0ED5C883"
+        }],
+        "authentication": [{
+            "type": "RsaSignatureAuthentication2018",
+            "publicKey": "did:op:a8eaa75b5fa54344b9c1061c8f938a8bdc9ea78b011f456490d1bdf116a867cc"
+        }],
+        "service": [{
+            "type": "metadata",
+            "serviceEndpoint": "https://aquarius.commons.oceanprotocol.com/api/v1/aquarius/assets/ddo/did:op:a8eaa75b5fa54344b9c1061c8f938a8bdc9ea78b011f456490d1bdf116a867cc",
+            "attributes": {
+                "main": {
+                    "type": "dataset",
+                    "name": "BMW 325I Coupe XL(SJR8961K)",
+                    "dateCreated": "2012-10-10T09:00:00",
+                    "datePublished": "2019-12-11T05:13:42",
+                    "author": "SG CarMart ",
+                    "license": "ODC-By :Attribution License ",
+                    "price": "15",
+                    "files": [{
+                        "checksum": "efb2c764274b745f5fc37f97c6b0e761",
+                        "compression": "zip",
+                        "contentLength": "4535431",
+                        "contentType": "text/json",
+                        "encoding": "UTF-8",
+                        "index": 0
+                    }]
+                },
+                "curation": {
+                    "rating": 0.0,
+                    "numVotes": 0,
+                    "isListed": true
+                },
+                "additionalInformation": {
+                    "carplate": "SJR8961K",
+                    "vin": "WBAWB320X0PV53794",
+                    "manufacturer": "BMW",
+                    "model": "BMW 325I Coupe XL",
+                    "year": "2009",
+                    "colour": "blue",
+                    "type": "Sports Car",
+                    "transmission": "Auto",
+                    "engine_capacity": 2497,
+                    "fuel_type": "Petrol",
+                    "registration_date": "2009-07-17",
+                    "coe_date": "2019-07-16",
+                    "coe": 16801,
+                    "omv": 50880,
+                    "max_power_output": 214,
+                    "price_sgd": 15,
+                    "images": [{
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_1b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_2b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_3b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_4b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_5b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_6b.jpg"
+                    }, {
+                        "url": "https://i.i-sgcm.com/quotz/cars/201712/20328_7b.jpg"
+                    }],
+                    "tags": ["BMW", "SG", "2019", "BMW", "BMW"],
+                    "checksum": "0x9b10bdfa1b26c0ef0b74565bd05dc061dae7814be995211f2503b0353b815ba2",
+                    "copyrightHolder": "SG CarMart ",
+                    "description": "Dataset about car number : SJR8961K",
+                    "inLanguage": "en"
+                },
+                "encryptedFiles": "[{\"checksum\":\"efb2c764274b745f5fc37f97c6b0e761\",\"compression\":\"zip\",\"contentLength\":4535431,\"contentType\":\"text/json\",\"encoding\":\"UTF-8\",\"index\":0,\"url\":\"https://i.i-sgcm.com/quotz/cars/201712/20328_1b.jpg\"}]"
+            },
+            "index": 0
+        }, {
+            "type": "authorization",
+            "serviceEndpoint": "https://secret-store.dev-ocean.com",
+            "attributes": {},
+            "index": 2,
+            "service": "SecretStore"
+        }, {
+            "type": "access",
+            "serviceEndpoint": "https://nginx-brizo.dev-ocean.com/api/v1/brizo/services/consume",
+            "attributes": {
+                "serviceAgreementTemplate": {
+                    "conditionDependency": {
+                        "accessSecretStore": [],
+                        "escrowReward": ["lockReward", "accessSecretStore"],
+                        "lockReward": []
+                    },
+                    "conditions": [{
+                        "contractName": "LockRewardCondition",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "fulfillAccessSecretStoreCondition",
+                                "moduleName": "lockRewardCondition",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "lockReward",
+                        "parameters": [{
+                            "name": "_rewardAddress",
+                            "type": "address",
+                            "value": "0xeD4Ef53376C6f103d2d7029D7E702e082767C6ff"
+                        }, {
+                            "name": "_amount",
+                            "type": "uint256",
+                            "value": "15"
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }, {
+                        "contractName": "AccessSecretStoreCondition",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "fulfillEscrowRewardCondition",
+                                "moduleName": "accessSecretStore",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }, {
+                            "actorType": "consumer",
+                            "handler": {
+                                "functionName": "fulfillEscrowRewardCondition",
+                                "moduleName": "accessSecretStore",
+                                "version": "0.1"
+                            },
+                            "name": "TimedOut"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "accessSecretStore",
+                        "parameters": [{
+                            "name": "_documentId",
+                            "type": "bytes32",
+                            "value": "a8eaa75b5fa54344b9c1061c8f938a8bdc9ea78b011f456490d1bdf116a867cc"
+                        }, {
+                            "name": "_grantee",
+                            "type": "address",
+                            "value": ""
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }, {
+                        "contractName": "EscrowReward",
+                        "events": [{
+                            "actorType": "publisher",
+                            "handler": {
+                                "functionName": "verifyRewardTokens",
+                                "moduleName": "escrowRewardCondition",
+                                "version": "0.1"
+                            },
+                            "name": "Fulfilled"
+                        }],
+                        "functionName": "fulfill",
+                        "name": "escrowReward",
+                        "parameters": [{
+                            "name": "_amount",
+                            "type": "uint256",
+                            "value": "15"
+                        }, {
+                            "name": "_receiver",
+                            "type": "address",
+                            "value": ""
+                        }, {
+                            "name": "_sender",
+                            "type": "address",
+                            "value": ""
+                        }, {
+                            "name": "_lockCondition",
+                            "type": "bytes32",
+                            "value": "0xE30FC30c678437e0e8F78C52dE9db8E2752781a0"
+                        }, {
+                            "name": "_releaseCondition",
+                            "type": "bytes32",
+                            "value": "0x45DE141F8Efc355F1451a102FB6225F1EDd2921d"
+                        }],
+                        "timelock": 0,
+                        "timeout": 0
+                    }],
+                    "contractName": "EscrowAccessSecretStoreTemplate",
+                    "events": [{
+                        "actorType": "consumer",
+                        "handler": {
+                            "functionName": "fulfillLockRewardCondition",
+                            "moduleName": "escrowAccessSecretStoreTemplate",
+                            "version": "0.1"
+                        },
+                        "name": "AgreementCreated"
+                    }],
+                    "fulfillmentOrder": ["lockReward.fulfill", "accessSecretStore.fulfill", "escrowReward.fulfill"]
+                },
+                "additionalInformation": {
+                    "description": ""
+                },
+                "main": {
+                    "name": "dataAssetAccessServiceAgreement",
+                    "creator": "",
+                    "datePublished": "2019-12-11T05:13:42Z",
+                    "price": "",
+                    "timeout": 36000
+                }
+            },
+            "index": 3,
+            "templateId": "0xfA16d26e9F4fffC6e40963B281a0bB08C31ed40C"
+        }],
+        "proof": {
+            "created": "2019-07-02T07:09:08Z",
+            "creator": "0x40967104aA72835637AFbA5318a4517A0ED5C883",
+            "signatureValue": "0xb6f3549bae1e17bb0a0d42a18b147dd3044f6aaef96749b946574e27d22aa7ee0x40fd532f22920042cb70870d242fadbfd706359876cedbb05a0a8ef43b03a63b1c",
+            "type": "DDOIntegritySignature"
+        }
+    }, {
+        "@context": "https://w3id.org/did/v1",
+        "id": "did:op:6854b0e5a7134eb3b5aebdb74b9c4254a58d8e71dd6f4e708d71edfcc1d3ea4e",
+        "created": "2019-06-24T12:24:47",
+        "publicKey": [{
+            "id": "did:op:6854b0e5a7134eb3b5aebdb74b9c4254a58d8e71dd6f4e708d71edfcc1d3ea4e",
+            "type": "EthereumECDSAKey",
+            "owner": "0x610D9314EDF2ced7681BA1633C33fdb8cF365a12"
+        }],
+        "authentication": [{
+            "type": "RsaSignatureAuthentication2018",
+            "publicKey": "did:op:6854b0e5a7134eb3b5aebdb74b9c4254a58d8e71dd6f4e708d71edfcc1d3ea4e"
+        }],
+        "service": [{
+            "type": "metadata",
+            "serviceEndpoint": "https://aquarius.pacific.dev-ocean.com//api/v1/aquarius/assets/ddo/did:op:6854b0e5a7134eb3b5aebdb74b9c4254a58d8e71dd6f4e708d71edfcc1d3ea4e",
+            "attributes": {
+                "main": {
+                    "type": "dataset",
+                    "name": "autos",
+                    "dateCreated": "2014-04-06T23:19:49",
+                    "datePublished": "2019-12-11T05:06:57",
+                    "author": "Jeffrey C. Schlimmer (Jeffrey.Schlimmer@a.gp.cs.cmu.edu)unknown",
+                    "license": "Public",
+                    "price": "0",
+                    "files": [{
+                        "index": 0,
+                        "contentType": "text/csv",
+                        "contentLength": "28538"
+                    }, {
+                        "index": 1,
+                        "contentType": "text/arff",
+                        "contentLength": "28538"
+                    }]
+                },
+                "curation": {
+                    "rating": 0.0,
+                    "numVotes": 0,
+                    "isListed": true
+                },
+                "additionalInformation": {
+                    "links": [{
+                        "url": "https://archive.ics.uci.edu/ml/citation_policy.html",
+                        "name": "citation"
+                    }],
+                    "checksum": "0xcf54e1f25a41fdda5b4ae643474889edd7bfb957b31b66e3c26f7409ad4b36f5",
+                    "categories": ["Transportation"],
+                    "description": "**Author**: Jeffrey C. Schlimmer (Jeffrey.Schlimmer@a.gp.cs.cmu.edu)\\n **Source**: [UCI](https://archive.ics.uci.edu/ml/datasets/Automobile) - 1987\\n **Please cite**:\\n \\n **1985 Auto Imports Database**\\n This data set consists of three types of entities: (a) the specification of an auto in terms of various characteristics, (b) its assigned insurance risk rating, (c) its normalized losses in use as compared to other cars. The second rating corresponds to the degree to which the auto is more risky than its price indicates. Cars are initially assigned a risk factor symbol associated with its price. Then, if it is more risky (or less), this symbol is adjusted by moving it up (or down) the scale. Actuarians call this process \"symboling\". A value of +3 indicates that the auto is risky, -3 that it is probably pretty safe.\\n \\n The third factor is the relative average loss payment per insured vehicle year. This value is normalized for all autos within a particular size classification (two-door small, station wagons, sports/speciality, etc...), and represents the average loss per car per year.\\n \\n Several of the attributes in the database could be used as a \"class\" attribute.\\n \\n Sources:\\n 1) 1985 Model Import Car and Truck Specifications, 1985 Ward's Automotive Yearbook.\\n 2) Personal Auto Manuals, Insurance Services Office, 160 Water Street, New York, NY 10038\\n 3) Insurance Collision Report, Insurance Institute for Highway Safety, Watergate 600, Washington, DC 20037\\n \\n Past Usage:\\n Kibler,~D., Aha,~D.~W., & Albert,~M. (1989). Instance-based prediction of real-valued attributes. {it Computational Intelligence}, {it 5}, 51--57.\\n \\n \\n Attribute Information:\\n >\\n 1. symboling: -3, -2, -1, 0, 1, 2, 3.\\n 2. normalized-losses: continuous from 65 to 256.\\n 3. make: alfa-romero, audi, bmw, chevrolet, dodge, honda,\\n isuzu, jaguar, mazda, mercedes-benz, mercury,\\n mitsubishi, nissan, peugot, plymouth, porsche,\\n renault, saab, subaru, toyota, volkswagen, volvo\\n 4. fuel-type: diesel, gas.\\n 5. aspiration: std, turbo.\\n 6. num-of-doors: four, two.\\n 7. body-style: hardtop, wagon, sedan, hatchback, convertible.\\n 8. drive-wheels: 4wd, fwd, rwd.\\n 9. engine-location: front, rear.\\n 10. wheel-base: continuous from 86.6 120.9.\\n 11. length: continuous from 141.1 to 208.1.\\n 12. width: continuous from 60.3 to 72.3.\\n 13. height: continuous from 47.8 to 59.8.\\n 14. curb-weight: continuous from 1488 to 4066.\\n 15. engine-type: dohc, dohcv, l, ohc, ohcf, ohcv, rotor.\\n 16. num-of-cylinders: eight, five, four, six, three, twelve, two.\\n 17. engine-size: continuous from 61 to 326.\\n 18. fuel-system: 1bbl, 2bbl, 4bbl, idi, mfi, mpfi, spdi, spfi.\\n 19. bore: continuous from 2.54 to 3.94.\\n 20. stroke: continuous from 2.07 to 4.17.\\n 21. compression-ratio: continuous from 7 to 23.\\n 22. horsepower: continuous from 48 to 288.\\n 23. peak-rpm: continuous from 4150 to 6600.\\n 24. city-mpg: continuous from 13 to 49.\\n 25. highway-mpg: continuous from 16 to 54.\\n 26. price: continuous from 5118 to 45400.",
+                    "inLanguage": "en"
+                },
+                "encryptedFiles": "0xb5d6eebc3916e1e207530df53a51e39b7bbfe7d1604c428e18bb7d19ec264bdfc522196296e552adfc45da5fc68421643abd1578381d6d5a0bed000cdd5909a9225bc8c822f6be9ec35d5aa8a9b7df7f0356e0e3171e3205bb95944deb1cea90ecc485f63d3ae972eb9b5500dfe2ac4ac9cd0afd785dec452831366067aedb3dec05a165ad972412a93f3dbaa40960f43a6856399ceb50314538318bd44c29a76bf321cd047a6533b2054ab05e267548c1bffc7bf12685a14a6cc3ec60dd4d16f2fb07c0a313af4699b5fc2423dfde52ec702199c3705b02b85789274f79c18f0d0296750879934b05e419a844cf96c37d0582ef12ed2620bd494c035cb862a4285449aee793cfa0f342340857f4feaa5d1fd57f909305"
+            },
+            "index": 0
+        }, {
+            "type": "authorization",
+            "serviceEndpoint": "https://secret-store.pacific.oceanprotocol.com/",
+            "attributes": {},
+            "index": 2,
+            "service": "SecretStore"
+        }, {
+            "type": "access",
+            "serviceEndpoint": "https://brizo.pacific.dev-ocean.com/api/v1/brizo/services/consume",
+            "attributes": {
+                "serviceAgreementTemplate": {
+                    "contractName": "EscrowAccessSecretStoreTemplate",
+                    "events": [{
+                        "name": "AgreementCreated",
+                        "actorType": "consumer",
+                        "handler": {
+                            "moduleName": "escrowAccessSecretStoreTemplate",
+                            "functionName": "fulfillLockRewardCondition",
+                            "version": "0.1"
+                        }
+                    }],
+                    "fulfillmentOrder": ["lockReward.fulfill", "accessSecretStore.fulfill", "escrowReward.fulfill"],
+                    "conditionDependency": {
+                        "lockReward": [],
+                        "accessSecretStore": [],
+                        "escrowReward": ["lockReward", "accessSecretStore"]
+                    },
+                    "conditions": [{
+                        "name": "lockReward",
+                        "timelock": 0,
+                        "timeout": 0,
+                        "contractName": "LockRewardCondition",
+                        "functionName": "fulfill",
+                        "events": [{
+                            "name": "Fulfilled",
+                            "actorType": "publisher",
+                            "handler": {
+                                "moduleName": "lockRewardCondition",
+                                "functionName": "fulfillAccessSecretStoreCondition",
+                                "version": "0.1"
+                            }
+                        }],
+                        "parameters": [{
+                            "name": "_rewardAddress",
+                            "type": "address",
+                            "value": "0x656Aa3D9b37A6eA770701ae2c612f760d9254A66"
+                        }, {
+                            "name": "_amount",
+                            "type": "uint256",
+                            "value": "0"
+                        }]
+                    }, {
+                        "name": "accessSecretStore",
+                        "timelock": 0,
+                        "timeout": 0,
+                        "contractName": "AccessSecretStoreCondition",
+                        "functionName": "fulfill",
+                        "events": [{
+                            "name": "Fulfilled",
+                            "actorType": "publisher",
+                            "handler": {
+                                "moduleName": "accessSecretStore",
+                                "functionName": "fulfillEscrowRewardCondition",
+                                "version": "0.1"
+                            }
+                        }, {
+                            "name": "TimedOut",
+                            "actorType": "consumer",
+                            "handler": {
+                                "moduleName": "accessSecretStore",
+                                "functionName": "fulfillEscrowRewardCondition",
+                                "version": "0.1"
+                            }
+                        }],
+                        "parameters": [{
+                            "name": "_documentId",
+                            "type": "bytes32",
+                            "value": "6854b0e5a7134eb3b5aebdb74b9c4254a58d8e71dd6f4e708d71edfcc1d3ea4e"
+                        }, {
+                            "name": "_grantee",
+                            "type": "address",
+                            "value": ""
+                        }]
+                    }, {
+                        "name": "escrowReward",
+                        "timelock": 0,
+                        "timeout": 0,
+                        "contractName": "EscrowReward",
+                        "functionName": "fulfill",
+                        "events": [{
+                            "name": "Fulfilled",
+                            "actorType": "publisher",
+                            "handler": {
+                                "moduleName": "escrowRewardCondition",
+                                "functionName": "verifyRewardTokens",
+                                "version": "0.1"
+                            }
+                        }],
+                        "parameters": [{
+                            "name": "_amount",
+                            "type": "uint256",
+                            "value": "0"
+                        }, {
+                            "name": "_receiver",
+                            "type": "address",
+                            "value": ""
+                        }, {
+                            "name": "_sender",
+                            "type": "address",
+                            "value": ""
+                        }, {
+                            "name": "_lockCondition",
+                            "type": "bytes32",
+                            "value": ""
+                        }, {
+                            "name": "_releaseCondition",
+                            "type": "bytes32",
+                            "value": ""
+                        }]
+                    }]
+                },
+                "additionalInformation": {
+                    "description": ""
+                },
+                "main": {
+                    "name": "dataAssetAccessServiceAgreement",
+                    "creator": "",
+                    "datePublished": "2019-12-11T05:06:57Z",
+                    "price": "",
+                    "timeout": 36000
+                }
+            },
+            "index": 3,
+            "templateId": "0x9BF43606d833489fbD568ace13f535fC41130c28"
+        }],
+        "proof": {
+            "type": "DDOIntegritySignature",
+            "created": "2019-06-24T12:24:49Z",
+            "creator": "0x610D9314EDF2ced7681BA1633C33fdb8cF365a12",
+            "signatureValue": "0x7552c9c9e50a7818fac1c00b4cd2cb8db30ebb719d15aa3b53546710bb05b5b351a42c4dfb7f61446c2be78d7ad0dcf7c1bcb3bae7246a5d1c0b25d5ef4745491b"
+        }
+    }],
+    "page": 1,
+    "total_pages": 1,
+    "total_results": 4
+}

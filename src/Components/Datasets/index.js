@@ -1,20 +1,23 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ConsumerContext } from '../../context/CunsumerContext';
+import './style.css';
 
 
 const Datasets = () => {
 
     const { state: { ocean, web3, assets }, setAssets } = useContext(ConsumerContext);
-    console.log("DATASETS", ocean, web3, assets);
+    const [loading, setLoading] = useState(true);
+    // console.log("DATASETS", ocean, web3, assets);
 
     const searchAssets= async () =>{
         try {
             const search = await ocean.assets.search(
                 '10 Monkey Species Small'
             );
-            console.log(search);
-            console.log("RESULT", search.results[0]);
+            // console.log(search);
+            console.log("RESULT", search.results[0].service[0].attributes.main);
             setAssets(search);
+            setLoading(false);
         } catch (error) {
             console.error(error.message);
         }
@@ -27,7 +30,7 @@ const Datasets = () => {
           // get all accounts
           const accounts = await ocean.accounts.list()
           // get our registered asset
-          const consumeAsset = assets.ddo
+          const consumeAsset = assets.results[0]
           // order service agreement
           const agreement = await ocean.assets.order(
             consumeAsset.id,
@@ -46,6 +49,10 @@ const Datasets = () => {
         }
       }
 
+    // if (assets?.results?.length > 0 ) {
+    //     consumeAsset();
+        
+    // }
 
     useEffect(() => {
         if (ocean) {
@@ -54,41 +61,52 @@ const Datasets = () => {
     }, [ocean]);
 
 
+    // .service[0].attributes.main
+    const listAssets = assets?.results && assets.results.map((dataset, index) => {
+        console.log("DATASET-SERVICE", dataset.service[0].attributes.additionalInformation);
+        const { name, author } = dataset.service[0].attributes.main;
+        return (
+            <tr>
+                <th scope="row">{index + 1}</th>
+                <td>{name}</td>
+                <td>{author}</td>
+                
+            </tr>
+        )
+    });
 
     
     return (
         <div className="table-responsive col-xs-6 mx-2 my-4 p-0">
             <h3 className="text-left">Data sets</h3>
-        <table className="table rounded border bg-white">
+            {
+                loading ?
+            (
+               <section className="loading">
+                   <div>
+                       <p className="alert alert-info" role="alert">Loading Data sets. Please wait...</p>
+                   </div>
+               </section>
+           ) :
+           (
+            <table className="table rounded border bg-white">
             <thead className="thead-light">
-                <tr>
-                <th scope="col">ID</th>
-                <th scope="col">DMC</th>
-                <th scope="col">Aluminium Temperature</th>
-                <th scope="col">Product Flow</th>
+               <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Author</th>
+                
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                </tr>
+                { listAssets }
+                
             </tbody>
             </table>
+        
+                )
+            }
+        
         </div>
 
     );
