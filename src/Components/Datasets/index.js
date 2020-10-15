@@ -7,12 +7,13 @@ const Datasets = () => {
 
     const { state: { ocean, web3, assets }, setAssets } = useContext(ConsumerContext);
     const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState("10 Monkey Species Small");
     // console.log("DATASETS", ocean, web3, assets);
 
     const searchAssets= async () =>{
         try {
             const search = await ocean.assets.search(
-                '10 Monkey Species Small'
+                searchTerm
             );
             // console.log(search);
             console.log("RESULT", search.results[0].service[0].attributes.main);
