@@ -1,5 +1,5 @@
 
-.table td {
+.table td, th {
     overflow-wrap: anywhere;
-    
+    text-align: left;
 }
