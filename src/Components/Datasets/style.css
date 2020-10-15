@@ -1,5 +1,10 @@
 
-.table td, th {
+.table td {
     overflow-wrap: anywhere;
     text-align: left;
+}
+
+.table th {
+    text-align: left;
+    margin-left: 4px;
 }
